@@ -1,0 +1,29 @@
+{
+  "produto": [
+    {
+      "nome": "Estojo",
+      "quantidade": 100,
+      "valorCompra": 15,
+      "porcentagem": 2,
+      "valorVenda": 15.3,
+      "fornecedor": "ACCO BRANDS BRASIL LTDA (TILIBRA)",
+      "id": 1
+    }
+  ],
+  "fornecedor": [
+    {
+      "razaoSocial": "ACCO BRANDS BRASIL LTDA (TILIBRA)",
+      "cnpj": 44990901000143,
+      "telefone": "(14) 3235-4003",
+      "endereco": {
+        "cep": "17013900",
+        "logradouro": "Rua Aymorés",
+        "complemento": "9 Quadra 6",
+        "bairro": "Vila Antártica",
+        "localidade": "Bauru",
+        "uf": "SP"
+      },
+      "id": 1
+    }
+  ]
+}

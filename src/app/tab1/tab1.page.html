@@ -1,0 +1,80 @@
+
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ editable ? 'Editar produto' : 'Cadastro do produto ' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-content>
+    <form
+      [formGroup]="produtoForm"
+      fullscreen
+      (submit)="editable ? editProduto() : addProduto() "
+    >
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item-group>
+          <ion-item-divider>
+            <ion-label>Dados do produto</ion-label>
+          </ion-item-divider>
+          <ion-item>
+            <ion-label position="stacked">Nome:</ion-label>
+            <ion-input formControlName="nome" type="text" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Quantidade:</ion-label>
+            <ion-input
+              formControlName="quantidade"
+              type="number"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Preço de Compra:</ion-label>
+            <ion-input
+              formControlName="valorCompra"
+              type="number"
+              required
+              (change)="calc()"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="" position="stacked">Porcentagem:</ion-label>
+            <ion-input
+              type="number"
+              formControlName="porcentagem"
+              (change)="calc()"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Preço de Venda:</ion-label>
+            <ion-input
+              formControlName="valorVenda"
+              type="number"
+              readonly
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Fornecedor:</ion-label>
+            <ion-input
+              formControlName="fornecedor"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-item-group>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin" fill="outline"
+          >{{ editable ? 'Editar' : 'Registrar'}}<ion-icon name="add-outline"></ion-icon></ion-button
+        >
+      </div>
+    </form>
+  </ion-content>
+</ion-content>
+<ion-footer> </ion-footer>

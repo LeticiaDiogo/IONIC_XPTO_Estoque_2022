@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Fornecedor </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lista de Fornecedores</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid class="ion-grid-padding">
+      <ion-row>
+
+        <ion-col sizeXs="2">ID</ion-col>
+        <ion-col sizeXs="7">Razão Social</ion-col>
+        <ion-col class="hidden-xs-col">Telefone</ion-col>
+        <ion-col sizeXs="3" class="show-xs-col hidden-xl-col hidden lg-col"
+          >Ações<ion-icon name="build"></ion-icon></ion-col
+        >
+      </ion-row>
+      <ion-row *ngFor="let fornecedor of fornecedores">
+        <ion-col sizeXs="2">{{ fornecedor.id }} </ion-col>
+        <ion-col sizeXs="7">{{ fornecedor.razaoSocial }} </ion-col>
+        <ion-col class="hidden-xs-col">{{ fornecedor.telefone }}</ion-col>
+        <ion-col
+          sizeXs="3"
+          class="show-xs-col hidden-md-col hidden-xl-col hidden-lg-col"
+          ><ion-button
+            fill="clear"
+            (click)="openModal(fornecedor.id)"
+            ><ion-icon name="eye-outline"></ion-icon>Mostrar</ion-button
+          ></ion-col
+        >
+      </ion-row>
+    </ion-grid>
+    <div class="ion-modal-content"></div>
+  </ion-content>
+</ion-content>

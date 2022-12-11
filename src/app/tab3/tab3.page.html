@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ editable ? 'Editar fornecedor' : 'Cadastro de fornecedor' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-content>
+    <form
+      [formGroup]="fornecedorForm"
+      fullscreen
+      (submit)="editable ? editFornecedor() : addFornecedor() "
+    >
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item-group>
+          <ion-item-divider>
+            <ion-label>Dados pessoais</ion-label>
+          </ion-item-divider>
+          <ion-item>
+            <ion-label position="stacked">Razão Social:</ion-label>
+            <ion-input
+              formControlName="razaoSocial"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">CNPJ:</ion-label>
+            <ion-input
+              formControlName="cnpj"
+              type="number"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Telefone:</ion-label>
+            <ion-input
+              formControlName="telefone"
+              type="tel"
+              required
+            ></ion-input>
+          </ion-item>
+        </ion-item-group>
+        <ion-item-group formGroupName="endereco">
+          <ion-item-divider>
+            <ion-label>Dados Endereço</ion-label>
+          </ion-item-divider>
+          <ion-item>
+            <ion-label position="stacked">CEP:</ion-label>
+            <ion-input
+              formControlName="cep"
+              type="text"
+              required
+              (keyup)="verifyCEP()"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Logradouro:</ion-label>
+            <ion-input
+              formControlName="logradouro"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Complemento:</ion-label>
+            <ion-input
+              formControlName="complemento"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Bairro:</ion-label>
+            <ion-input
+              formControlName="bairro"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Localidade:</ion-label>
+            <ion-input
+              formControlName="localidade"
+              type="text"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Estado:</ion-label>
+            <ion-input formControlName="uf" type="text" required></ion-input>
+          </ion-item>
+        </ion-item-group>
+      </ion-list>
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin" fill="outline"
+          >{{ editable ? 'Editar' : 'Registrar'}}<ion-icon name="add-outline"></ion-icon></ion-button
+        >
+      </div>
+    </form>
+  </ion-content>
+</ion-content>
+<ion-footer> </ion-footer>

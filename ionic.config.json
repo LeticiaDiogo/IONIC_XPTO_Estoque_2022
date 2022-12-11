@@ -1,0 +1,7 @@
+{
+  "name": "XPTO Estoque",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
